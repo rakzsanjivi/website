@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGHAVARAJAN S U| Data Analyst|Python Developer Portfolio</title>
+    <meta name="description" content="Portfolio of RAGHAVARAJAN S U - Aspiring Data Analyst and Python Developer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static \'style.css\' %}">
+</head>
+<body>
+
+    <!-- Particles Container for Hero Background -->
+    <div id="particles-js"></div>
+
+    <nav id="navbar">
+        <a href="#hero" class="logo">RAGHAVARAJAN S U.</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-container fade-in">
+                <div class="hero-center-content">
+                    <span class="hero-greeting">Hi, I'm Raghavarajan</span>
+                    <h1 class="hero-title">Developer Portfolio</h1>
+                    <h2 class="hero-subtitle">
+                        <span id="typewriter-text" class="typewriter"></span>
+                    </h2>
+                    
+                    <div class="hero-socials">
+                        <a href="https://github.com/Rakz" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:email@example.com" class="social-icon"><i class="far fa-envelope"></i></a>
+                        <a href="#" class="social-icon" title="Download Resume"><i class="fas fa-arrow-down"></i></a>
+                    </div>
+
+                    <div class="role-map">
+                        <div class="role-card glass-card">Data Analyst</div>
+                        <div class="role-node"></div>
+                        <div class="role-card glass-card">Python Dev</div>
+                        <div class="role-node"></div>
+                        <div class="role-card glass-card">Power BI Expert</div>
+                        <div class="role-node"></div>
+                        <div class="role-card glass-card">SQL Specialist</div>
+                    </div>
+                </div>
+                <!-- Hidden original profile image for color extraction -->
+                <img src="{% static \'img/pfp.jpeg\' %}" alt="RAGHAVARAJAN S U Profile Picture" id="profile-image" crossorigin="anonymous" style="display: none;">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title fade-in"><span>About Me</span></h2>
+            <div class="about-content fade-in">
+                <div class="about-text glass-card">
+                    <p>Hello! I'm <span>RAGHAVARAJAN S U</span>, an aspiring Data Analyst currently pursuing my Master of Computer Applications (MCA). I enjoy turning complex data into clear, actionable insights.</p>
+                    <p>My interest in data began with a curiosity about how hidden patterns drive business decisions. Today, I'm focused on developing my skills in data manipulation, visualization, and building robust analytical tools.</p>
+                    <p>Whether it's cleaning messy datasets, querying databases, or designing intuitive dashboards, I am eager to tackle challenges that require rigorous analysis and creative problem-solving.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title fade-in"><span>Tech Stack</span></h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-card glass-card">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-table"></i>
+                    <span>Excel</span>
+                </div>
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Power BI</span>
+                </div>
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>Data Analysis</span>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Statistics</span>
+                </div>
+                <div class="skill-card glass-card">
+                    <i class="fa-solid fa-file-csv"></i>
+                    <span>Pandas</span>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title fade-in"><span>Featured Projects</span></h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card glass-card fade-in">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="far fa-folder-open folder-icon"></i>
+                            <div class="project-links">
+                                <a href="#" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                                <a href="#" title="Live View"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Apple iTunes SQL Analysis</h3>
+                        <p class="project-desc">Analyzed iTunes store data using SQL to uncover genre trends, top artists, and sales patterns. Provided actionable insights into store performance.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Data Analysis</span>
+                        </div>
+                        <a href="https://github.com/rakzsanjivi/Data-Analyst-Project/tree/c3d0aa887149a3aacb19af9ac009c3b04fa70968/itunes" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; display: block; padding: 10px;">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card fade-in">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="far fa-folder-open folder-icon"></i>
+                            <div class="project-links">
+                                <a href="#" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                                <a href="#" title="Live View"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Bike Sales Excel Dashboard</h3>
+                        <p class="project-desc">Built an interactive Excel dashboard with pivot tables, slicers, and KPI charts to visualize customer segments and revenue trends effectively.</p>
+                        <div class="project-tags">
+                            <span>Excel</span>
+                            <span>Data Visualization</span>
+                            <span>Pivot Tables</span>
+                        </div>
+                        <a href="https://github.com/rakzsanjivi/Data-Analyst-Project/tree/c3d0aa887149a3aacb19af9ac009c3b04fa70968/Bikes%20Sales%20Data%20Analaysis%20using%20Excel" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; display: block; padding: 10px;">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title fade-in"><span>Education</span></h2>
+            <div class="education-container fade-in">
+                
+                <div class="timeline">
+                    <div class="timeline-item glass-card fade-in">
+                        <div class="timeline-date">2025 - Present</div>
+                        <h3 class="timeline-degree">Master of Computer Applications (MCA)</h3>
+                        <p class="timeline-inst">Madurai Kamaraj University</p>
+                        <p style="margin-top: 10px; color: var(--text-muted); font-size: 14px;">Currently pursuing. Focusing on data analytics, software development, and advanced computing principles.</p>
+                    </div>
+                    
+                    <div class="timeline-item glass-card fade-in">
+                        <div class="timeline-date">2022 - 2025</div>
+                        <h3 class="timeline-degree">B.Sc Computer Science</h3>
+                        <p class="timeline-inst">Ayya Nadar Janaki Ammal College<br><small>Affiliated to Madurai Kamaraj University</small></p>
+                        <p style="margin-top: 10px; color: var(--text-muted); font-size: 14px;">Completed foundational studies in computer science and mathematics, building a strong base for data analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title fade-in"><span>Contact</span></h2>
+            <div class="contact-container fade-in">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I am currently looking for an internship or entry-level opportunities in Data Analysis. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Rakz" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:email@example.com" class="social-link" title="Email"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Alert Banner (hidden by default) -->
+                <div id="form-alert" style="display:none; padding: 15px 20px; border-radius: 10px; margin-bottom: 16px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; position: relative;">
+                    <span id="form-alert-text"></span>
+                    <button onclick="document.getElementById('form-alert').style.display='none'" style="background:none; border:none; color:inherit; font-size:18px; cursor:pointer; position:absolute; right:12px; top:50%; transform:translateY(-50%);">&times;</button>
+                </div>
+
+                <form id="contact-form" class="contact-form glass-card">
+                    <div class="form-group">
+                        <input type="text" id="contact-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contact-email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="align-self: flex-start;">Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> RAGHAVARAJAN S U. Built with Design & Code.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Custom Main JS -->
+    <script src="{% static \'js/main.js\' %}"></script>
+
+    <!-- Contact Form AJAX Submission -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const alertBox = document.getElementById('form-alert');
+            const alertText = document.getElementById('form-alert-text');
+            const submitBtn = document.getElementById('contact-submit-btn');
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            // Disable button while sending
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin" style="margin-left: 8px;"></i>';
+
+            try {
+                const response = await fetch('/contact/submit/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    // Show green success alert
+                    alertBox.style.display = 'block';
+                    alertBox.style.background = 'linear-gradient(135deg, #00c851, #007e33)';
+                    alertBox.style.color = '#fff';
+                    alertText.textContent = data.message;
+                    // Reset the form
+                    document.getElementById('contact-form').reset();
+                } else {
+                    // Show red error alert
+                    alertBox.style.display = 'block';
+                    alertBox.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+                    alertBox.style.color = '#fff';
+                    alertText.textContent = data.message || 'Something went wrong.';
+                }
+            } catch (error) {
+                alertBox.style.display = 'block';
+                alertBox.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+                alertBox.style.color = '#fff';
+                alertText.textContent = 'Network error. Please check your connection and try again.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>';
+            }
+
+            // Auto-hide alert after 6 seconds
+            setTimeout(() => { alertBox.style.display = 'none'; }, 6000);
+        });
+    </script>
+</body>
+</html>

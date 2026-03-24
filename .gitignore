@@ -1,0 +1,21 @@
+# Python/Django specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+db.sqlite3
+.env
+
+# Environments
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Static files (these will be generated on the server)
+staticfiles/
+
+# System specific
+.DS_Store
+Thumbs.db

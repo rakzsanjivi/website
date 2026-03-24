@@ -1,0 +1,323 @@
+Portfolio - MNC-Grade Redesign Implementation Plan
+
+This plan details the steps to fix all layout flaws and redesign the portfolio
+to a production-level standard that meets expectations of top MNC recruiters.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IDENTIFIED FLAWS FROM CURRENT SCREENSHOT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLAW 1 — NAVBAR LOGO BREAKING INTO 3 LINES
+The logo "RAGHAVARAJAN S U." is overflowing and
+stacking vertically (3 separate lines visible in
+screenshot). Completely breaks navbar layout.
+
+FLAW 2 — HERO TITLE OVERFLOW ON MOBILE
+"Developer Portfolio" heading is 80px font size
+and exceeds viewport width on laptop/tablet.
+No clamp() or responsive font scaling applied.
+
+FLAW 3 — HERO SECTION TOP OVERLAP
+The hero content starts too high and overlaps
+with the fixed navbar. Insufficient padding-top
+to account for floating navbar height.
+
+FLAW 4 — ROLE CARDS CUT OFF AT BOTTOM
+The 4 role cards (Data Analyst, Python Dev,
+Power BI Expert, SQL Specialist) are partially
+cut off below the viewport fold with no scroll
+indicator or breathing room beneath them.
+
+FLAW 5 — MISSING SKILLS SECTION CONTENT
+Skills nav link exists but the section has no
+visible content rendered in the browser.
+
+FLAW 6 — NO MOBILE HAMBURGER MENU
+Nav links disappear on mobile (display:none)
+with no hamburger replacement. Site is
+unusable on phone screens.
+
+FLAW 7 — WEAK VISUAL HIERARCHY
+All text is the same white/grey. No accent
+color used to create visual focus points.
+MNC portfolio needs a signature accent.
+
+FLAW 8 — ROLE CARDS NOT EQUAL WIDTH
+Cards in the role-map row have unequal widths,
+making the connected line layout look broken
+and unprofessional.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOAL DESCRIPTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Transform this into an MNC-recruiter-ready portfolio
+inspired by top Dribbble developer portfolios. Design
+language: ultra-dark monochrome base (#080808) with a
+single electric blue accent (#4F8EF7) for CTAs and
+highlights. Clean typographic hierarchy, fluid
+responsive layouts, and micro-interactions that
+demonstrate frontend competency.
+
+Reference aesthetic: Dribbble.com/shots/popular
+→ filter: "developer portfolio dark"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROPOSED CHANGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[CSS FIXES — style.css]
+
+[FIX FLAW 1] NAVBAR LOGO
+  .logo {
+    font-size: clamp(14px, 2vw, 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+
+[FIX FLAW 2] HERO TITLE RESPONSIVE FONT
+  .hero-title {
+    font-size: clamp(36px, 7vw, 80px);
+    letter-spacing: clamp(-1px, -0.03em, -3px);
+  }
+
+[FIX FLAW 3] HERO PADDING TOP
+  #hero {
+    padding-top: 160px; /* was 150px, needs more */
+    min-height: 100vh;
+  }
+
+[FIX FLAW 4] ROLE CARDS EQUAL WIDTH + SPACING
+  .role-card {
+    flex: 1 1 0;
+    min-width: 130px;
+    max-width: 180px;
+    text-align: center;
+    justify-content: center;
+  }
+  .role-map {
+    padding-bottom: 60px; /* breathing room below */
+  }
+
+[FIX FLAW 8] ROLE NODE LINE WIDTH
+  .role-node {
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+[NEW] ACCENT COLOR SYSTEM
+  Add to :root {
+    --accent: #4F8EF7;
+    --accent-glow: rgba(79, 142, 247, 0.15);
+  }
+  Apply --accent to:
+  - .btn-primary background
+  - .social-icon:hover border-color
+  - .timeline-date background
+  - section-title span color
+  - typewriter cursor border color
+  - project-title on hover
+
+[NEW] BUTTON REDESIGN
+  .btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79,142,247,0.35);
+  }
+  .btn-outline {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 15px var(--accent-glow);
+  }
+
+[FIX FLAW 6] MOBILE HAMBURGER MENU (add to CSS)
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(10,10,10,0.97);
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-links.open { display: flex; }
+  }
+
+[FIX FLAW 5] SKILLS SECTION — Build Full Content
+  Layout: 3-column icon grid (2-column on tablet,
+  1-column on mobile)
+
+  Skills to include with Font Awesome icons:
+  - Python        fa-brands fa-python
+  - SQL           fa-solid fa-database
+  - Excel         fa-solid fa-table
+  - Power BI      fa-solid fa-chart-pie
+  - Data Analysis fa-solid fa-magnifying-glass-chart
+  - Statistics    fa-solid fa-chart-line
+  - Pandas        fa-solid fa-file-csv
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .skill-card.glass-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border-radius: 12px;
+  }
+  .skill-card i {
+    font-size: 28px;
+    color: var(--accent);
+    width: 36px;
+  }
+  .skill-card span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-main);
+  }
+  .skill-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+[HTML CHANGES — index.html]
+
+[ADD] Hamburger button inside <nav> before .nav-links:
+  <button class="hamburger" id="hamburger"
+    aria-label="Toggle Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+[ADD] Full Skills Section HTML after About section:
+  <section id="skills">
+    <h2 class="section-title fade-in">
+      <span>Tech Stack</span>
+    </h2>
+    <div class="skills-grid fade-in">
+      [9 skill cards as listed above]
+    </div>
+  </section>
+
+[MODIFY] Hero greeting text:
+  Change "RAGHAVARAJAN S U's" to just
+  "Hi, I'm Raghavarajan" — more human and
+  recruiter-friendly
+
+[ADD] JS for hamburger toggle in main.js:
+  document.getElementById('hamburger')
+  .addEventListener('click', () => {
+    document.querySelector('.nav-links')
+    .classList.toggle('open');
+  });
+
+[TYPOGRAPHY REFINEMENT]
+
+  Body font size: 16px (keep)
+  h1 hero-title: clamp(36px, 7vw, 80px)
+  h2 section-title: 13px uppercase (keep)
+  h3 project-title: 20px
+  p project-desc: 14px, line-height 1.7
+  .hero-subtitle: clamp(16px, 2.5vw, 24px)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERIFICATION PLAN — Manual Testing Checklist
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] Open index.html in browser at full desktop width
+    → Navbar logo fits in one line, no wrapping
+    → Hero title fits within viewport, no overflow
+    → Hero content starts below navbar (no overlap)
+    → Role cards are equal width, fully visible
+
+[ ] Resize browser to 768px (tablet)
+    → Skills grid drops to 2 columns
+    → Projects grid drops to 2 columns
+    → Contact form stacks vertically
+    → Role cards scroll horizontally if needed
+
+[ ] Resize browser to 375px (mobile — iPhone)
+    → Hamburger menu icon appears
+    → Clicking it opens nav links vertically
+    → All text fits without horizontal scroll
+    → Hero title reads clearly at small size
+    → Skills grid drops to 1 column
+
+[ ] Scroll through all sections
+    → Fade-in animations trigger on scroll
+    → Section titles all have ── lines on sides
+    → Blue accent (#4F8EF7) visible on buttons,
+       skill icons, and highlighted text
+    → No section overlaps another
+
+[ ] Hover interactions
+    → Role cards show hover image reveal
+    → Skill cards glow blue on hover
+    → Project cards lift on hover
+    → Buttons show glow effect on hover
+    → Social icons animate upward on hover
+
+[ ] Contact form
+    → Underline inputs highlight on focus
+    → Submit shows success message
+    → Form validates empty fields
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPORTANT NOTE TO ANTIGRAVITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Do NOT change:
+- The dark #080808 background color
+- The Inter font family
+- The glass-card morphism style
+- The existing typewriter animation
+- The particles.js integration
+- The overall section order
+
+This is a targeted fix + enhancement,
+NOT a full redesign from scratch.
